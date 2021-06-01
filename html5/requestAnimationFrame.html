@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box{
+      width: 10px; height: 20px; background-color: #eee; position:absolute; transform:translateX(-50%); left: 40%; 
+    }
+  </style>
+</head>
+<body>
+  <div id="box" style="width: 0;"></div>
+  <script>
+    window.onload = () => {
+      var startTime = new Date().getTime()
+      
+      // setTimeout(() => {
+      //   animationWidth()
+      // }, 18)
+
+      function animationWidth() {
+        var div = document.getElementById('box');
+        div.style.width = parseInt(div.style.width) + 1 + 'px';
+
+        let endTime = new Date().getTime()
+        console.log(endTime - startTime)
+
+        startTime = endTime
+      
+        // if(parseInt(div.style.width) < 1000) {
+        //   requestAnimationFrame(animationWidth)
+        // }
+      }
+      //requestAnimationFrame(animationWidth);
+
+
+      // for(let i=0;i<2000;i++) {
+      //   console.log('ABC');
+      // }
+
+     
+    }
+    
+  </script>
+</body>
+
+</html>
+  

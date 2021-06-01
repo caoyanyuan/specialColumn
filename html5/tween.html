@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/tween.js"></script>
+</head>
+<body>
+
+    <div class="test">
+        <div id="box" style="left:0"></div>
+    </div>
+    
+    <script>
+        /**
+         * 类似高德地图的轨迹路线实现，结合tween和requestAnimationFrame实现的:
+​           传入一些轨迹点集合，利用tween得出每两个点之间的动态点坐标。
+         * /
+        var position = { x: 10, y: 0 }
+        var tween = new TWEEN.Group() 
+        var box = document.getElementById("box")
+        var totalQue = [];
+
+        var arr = [
+            { x: 100, y: 0 },
+            { x: 100, y: 100 },
+            { x: 200, y: 100 },
+            { x: 200, y: 200 },
+        ]
+
+        arr.reduce((prev, next) => {
+            if(prev) {
+                let temp = new TWEEN.Tween(prev, tween)
+                temp.to(next).onUpdate(point => {
+                    //每次绘制的操作
+                    box.style.left = point.x + "px"
+                    box.style.top = point.y + "px"
+                }).onComplete(point => {
+                    //完全每一个节点的回调函数
+                    console.log('complete', point)
+                })         
+                totalQue.push(temp) 
+            }
+            return next
+        }, null)
+
+        totalQue.reduce((prev,next) => {
+            prev.chain(next)
+            return next
+        })
+        totalQue[0].start()
+        
+       
+        var animate = () => {
+            requestAnimationFrame(animate);
+            tween.update();
+
+            if(position.x >= 200) {
+                cancelAnimationFrame(animate)
+            }
+        }
+        animate();
+
+        setTimeout(() => {
+            cancelAnimationFrame(animate)
+        }, 500)
+        
+    </script>
+</body>
+<style>
+    .test{
+        position: relative;
+    }
+    #box{
+        height: 30px; width: 30px; border:1px solid #ccc; position: absolute;
+    }
+</style>
+</html>
