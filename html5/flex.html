@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!-- <div class="parent">
+    <div class="child">
+        <div>112</div>
+        <div>112</div>
+        <div>112</div>
+    </div>
+    <div class="child">
+        <div>112</div>
+        <div>112</div>
+    </div>
+    <div class="child">
+        <div class="mt10">112</div>
+        <div>112</div>
+    </div>
+    <div class="child w">2</div>
+    <div class="child">3</div>
+    <div class="child h">4</div>
+    <div class="child">3</div>
+    <div class="child w">4</div>
+    <div class="child">3</div>
+    <div class="child h">4</div>
+</div> -->
+
+<div class="parent">
+    <div class="child w">3</div>
+    <div class="child h">4</div>
+</div>
+<style>
+    /*
+        用来提供盒状模型最大的灵活性
+        设为 Flex 布局以后，子元素的float、clear和vertical-align属性将失效。
+        flex-direction: 决定主轴的方向 row | row-reverse | column | column-reverse;
+        flex-wrap: 如果一条轴线排不下，如何换行 nowrap | wrap | wrap-reverse;
+        justify-content: 定义项目在主轴上的对齐方式。 flex-start | flex-end | center | space-between | space-around;
+        align-items: 定义项目在交叉轴上如何对齐 flex-start | flex-end | center | baseline | stretch;  baseline(项目的第一行文字的基线对齐)
+        
+        align-content: 定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用 => 很多元素换行之后每一行的排列方式
+        flex-start | flex-end | center | space-between | space-around | stretch
+
+        item上的属性
+        order: 排列顺序。数值越小越靠前 默认0
+        flex-grow: 定义项目的放大比例，默认为0
+        flex-shrink: 定义了项目的缩小比例，默认为1
+        flex-basis: 在分配多余空间之前，项目占据的主轴空间（main size） 和width，height的设置雷瑟
+        flex: flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto
+        该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
+        align-self: 定义单个项目有与其他项目不一样的对齐方式，覆盖align-items
+    */
+    *{
+        margin:0; padding:0;
+    }
+    .parent{
+        height: 300px; width: 700px; display: flex;
+        justify-content: space-between;
+    }
+    .child{
+        height: 80px; width: 100px; background: #eee; margin: 0 10px; padding-top: 10px; margin-top: 10px;
+    }
+    .mt10{
+        margin-top: 30px;
+    }
+
+    .w{
+        width: 50px; 
+    }
+    .h{
+        align-self: flex-end;
+    }
+</style>
+</body>
+</html>
