@@ -26,6 +26,7 @@ function deepCopy(obj) {
             temp[key] = deepCopy(obj[key])
         }
     }
+    console.log(temp)
     return temp;
 }
 

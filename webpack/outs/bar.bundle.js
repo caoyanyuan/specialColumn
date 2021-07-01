@@ -1,0 +1,1 @@
+(self.webpackChunkwebpack=self.webpackChunkwebpack||[]).push([[98],{562:(e,c)=>{"use strict";c.bar=function(){return 1}}}]);

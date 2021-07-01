@@ -43,9 +43,18 @@ setTimeout(() => {
     console.log(8);
 }, 15);
 console.log(9);
-
-// 2 4 5 7 9 6 3 8 1
-// 2 4 5 7 9 3 1 6 8
+// window.onerror = function(e) {
+//     console.log('发生错误了')
+// }
+// window.addEventListener('error', (e) => {
+//     console.log('what')
+//     if (e.target !== window) { // 避免重复上报
+//       console.log({
+//           url: window.location.href, // 引用资源地址
+//           srcUrl: e.target.src, // 资源加载出错地址
+//       })
+//     }
+//   }, true);
 
 
 

@@ -18,15 +18,15 @@ function bubbleSort(arr) {
 
 // 插入排序 类似于抓扑克牌
 function insertSort(arr) {
-    let handle = [arr[0]]
-    for(let i = 1; i < arr.length; i++) {
-        for(let j = handle.length-1; j >= 0; j--) {
+    let handle = [ arr[0] ]
+    for(let i=1; i<arr.length; i++) {
+        for(let j = handle.length-1; j>=0 ; j--) {
             if(arr[i] > handle[j]) {
                 handle.splice(j+1, 0, arr[i])
                 break
             }
-            if(j===0){
-                handle.push(arr[i])
+            if(j === 0) {
+                handle.unshift(arr[i])
             }
         }
     }
