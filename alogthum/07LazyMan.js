@@ -25,44 +25,50 @@ Eat supper
 function LazyMan2(name) {
     class _LazyMan{
         constructor(name) {
-            this.queue = []
-            let hello = () => {
-                console.log(`hi, this is ${name}`)
+            this.queue = [];
+            let fn = () =>{
+                console.log("Hi This is " + name + "!");
+                this.executor();
             }
-            this.queue.push(hello)
+            this.queue.push(fn);
             setTimeout(() => {
-                this.executor()
+                this.executor();
             })
         }
         sleep(n) {
-            this.queue.push(() => {
+            this.queue.unshift(() => {
                 setTimeout(() => {
                     console.log('我睡饱了')
                     this.executor()
-                }, n*10)
+                }, n*1000)
             })
             return this
         }
         eat(type) {
-            this.queue.push(() => {
+            this.queue.unshift(() => {
                 console.log('eat '+type)
+                this.executor()
             })
             return this
         }
+        sleepFirst(n) {
+            this.queue.push(() => {
+                setTimeout(() => {
+                    console.log('先睡一觉')  
+                    this.executor()              
+                }, n*1000)
+            })
+
+            return this
+        }
         executor() {
-            //console.log(this.queue)
-            let fn = this.queue.unshift()
-            console.log(fn.constructor)
-            
+            let fn = this.queue.pop()
             fn && fn()
         }
     }
     
     return new _LazyMan(name)
 }
-
-
-
 
 var LazyMan = function(name){
     class _LazyMan{
@@ -117,8 +123,10 @@ var LazyMan = function(name){
     return new _LazyMan(name); 
 }
 
+LazyMan2('tom').sleepFirst(3).eat('dinner')
 
-LazyMan2('tom').sleep(2).eat('dinner')
+
+
 
 
 
