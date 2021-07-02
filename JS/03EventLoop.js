@@ -43,6 +43,10 @@ setTimeout(() => {
     console.log(8);
 }, 15);
 console.log(9);
+
+process.nextTick(() => {
+    console.log(222)
+})
 // window.onerror = function(e) {
 //     console.log('发生错误了')
 // }
